@@ -9,7 +9,7 @@ class Location:
     def get_coordinates(self):
         return f"Latitude: {self.latitude}, Longitude: {self.longitude}"
 
-    def calculate_distance(self, other_location, unit="km"):
+    def calculate_distance(self, other_location, unit="km"): # Edit the text between "miles" and "km" to produce the different outputs.
         # Haversine formula to calculate distance between two points on the Earth
         
         radius = 6371  # Earth radius in kilometers
