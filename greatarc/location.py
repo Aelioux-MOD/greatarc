@@ -9,8 +9,7 @@ class Location:
     def get_coordinates(self):
         return f"Latitude: {self.latitude}, Longitude: {self.longitude}"
 
-    def calculate_distance(self, other_location):
-        import math
+    def calculate_distance(self, other_location, unit="km"):
         # Haversine formula to calculate distance between two points on the Earth
         
         radius = 6371  # Earth radius in kilometers
@@ -20,6 +19,8 @@ class Location:
             math.cos(math.radians(other_location.latitude)) * math.sin(dlon / 2) ** 2
         
         c = 2 * math.atan2(math.sqrt(a), math.sqrt(1 - a))
-        distance = radius * c
+        distance_km = radius * c
         
-        return distance
+        if unit == "miles":
+            return distance_km * 0.621371  # Convert kilometers to miles
+        return distance_km
